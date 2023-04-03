@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Encriptador - Alura</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="caja">
+            <h1>Alura</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Encriptador - Alura</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="principal">
+            <h2>Encriptador de texto</h2>
+            <form name="encript">
+                <div class="textos">
+                    <label>Texto de entrada</label>
+                    <textarea name=testoEncriptar id="entrada" cols=55 rows=13> </textarea>
+                </div>
+
+
+                <div class="salida">
+                    <label id="lsalida"></label>
+                    <label id="encriptado2"> </label>
+                </div>
+
+
+                <div class="botones">
+                    <input class="input-padron" type=button value="Encriptar" onclick="encriptar()">
+                    <input class="input-padron" type=button value="Desencriptar " onclick="desencriptar()">
+                    <input class="input-padron" type=button value="Limpiar" onclick="limpiar()">
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p class="copyright">&copy; Copyright Jose de la Ossa - 2023</p>
+    </footer>
+
+</body>
+
+<script>
+
+    function desencriptar() {
+
+        const originalString = document.encript.testoEncriptar.value.toLowerCase();
+
+        const newStringa = originalString.replace(/ai/gi, "a"); 
+        console.log(newStringa);
+
+        const newStringe = newStringa.replace(/enter/gi, "e");
+        console.log(newStringe);
+
+        const newStringi = newStringe.replace(/imes/gi, "i");
+        console.log(newStringi);
+
+        const newStringo = newStringi.replace(/ober/gi, "o");
+        console.log(newStringo);
+
+        const newStringu = newStringo.replace(/ufat/gi, "u");
+        console.log(newStringu);
+
+        document.getElementById('encriptado2').innerHTML = ("");
+        document.getElementById('encriptado2').innerHTML = newStringu;
+
+        document.getElementById('lsalida').innerHTML = ("");
+        document.getElementById('lsalida').innerHTML = ("SALIDA:");
+
+    }
+
+    function encriptar() {
+        var orig = "";
+        var mudado = new Array();
+        orig = document.encript.testoEncriptar.value.toLowerCase();
+
+        for (var i = 0; i < orig.length; i++) {
+            mudado[i] = orig[i]; 
+            if (orig[i] == 'a') {
+
+                mudado[i] = 'ai';
+            }
+
+            if (orig[i] == 'e') {
+                mudado[i] = 'enter';
+            }
+
+            if (orig[i] == 'i') {
+                mudado[i] = 'imes';
+            }
+
+            if (orig[i] == 'o') {
+                mudado[i] = 'ober';
+            }
+
+            if (orig[i] == 'u') {
+                mudado[i] = 'ufat';
+            }
+        }
+
+        console.log(orig);
+        console.log(mudado);
+
+        document.getElementById('lsalida').innerHTML = ("");
+        document.getElementById('lsalida').innerHTML = ("SALIDA:");
+        document.getElementById('encriptado2').innerHTML = mudado.join("");
+    }
+
+
+    function limpiar() {
+        document.encript.testoEncriptar.value = "";
+        document.getElementById('encriptado2').innerHTML = ("");
+        document.getElementById('lsalida').innerHTML = ("");
+    }
+
+</script>
+
+</html>
